@@ -48,32 +48,61 @@
             </table>
 
             <form method="post" id="slick-sc-form" class="slick">
+
                 <table id="slick-sc-form-table">
                     <tbody>
                     <tr class="form-row">
-                        <td class="label"><span class="slick-form-label-title">CSS Class</span>
-                            <span class="slick-form-desc">Add a class to the wrapping HTML element.</span>
+                        <td class="label">
+                            <span class="slick-form-label-title">ID:</span>
+                            <span class="slick-form-desc">Unique ID of the timer. Don't edit if you are not sure what you are doing.</span>
                         </td>
                         <td class="field">
-                            <input type="text" name="slick_class" class="slick-date-picker-field slick-input slick-form-text" >
+                            <input type="text" name="slick_class" class="slick-input slick-form-text" value="<?php echo "slick_".time().'_'.floor(rand()*25.5); ?>" />
                         </td>
                     </tr>
                     </tbody>
 
-                    <tbody>
-                    <tr class="form-row">
-                        <td class="label"><span class="slick-form-label-title">CSS Class</span>
-                            <span class="slick-form-desc">Add a class to the wrapping HTML element.</span>
-                        </td>
-                        <td class="field">
-                            <input type="text" name="slick_class2" class="slick-spinner-field slick-input slick-form-text" >
-                        </td>
-                    </tr>
-                    </tbody>
-
-                    <?php slick_shortcodes($slick_shortcodes); ?>
+                    <?php slick_shortcodes($basic_options); ?>
 
                 </table>
+
+                <table id="slick-sc-form-table" class="slick-shortcode-title">
+                    <tbody>
+                        <tr class="form-row">
+                            <td class="label">Label Options</td>
+                            <td class="field">
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table id="slick-sc-form-table">
+                    <?php slick_shortcodes($label_options); ?>
+                </table>
+
+
+                <table id="slick-sc-form-table" class="slick-shortcode-title">
+                    <tbody>
+                    <tr class="form-row">
+                        <td class="label">Styles Options</td>
+                        <td class="field">
+                            &nbsp;
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table id="slick-sc-form-table">
+                    <?php slick_shortcodes($element_styles); ?>
+                </table>
+
+                <tbody class="slick-sc-form-button">
+                    <tr class="form-row">
+                        <td class="field"><a href="#" class="slick-insert">Insert Shortcode</a></td>
+                    </tr>
+                </tbody>
+
             </form>
         </div>
     </div>

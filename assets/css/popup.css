@@ -96,6 +96,19 @@
     padding-left: 26px; padding-right: 26px; padding-top: 25px; padding-bottom: 24px;
 }
 
+.slick-shortcode-title {
+    background: #e6e4e4 none repeat scroll 0 0;
+    border-bottom: 1px solid #e3e2e1;
+    padding: 5px 12px;
+}
+.slick-shortcode-title tbody tr.form-row{
+    padding: 0 !important;
+}
+
+.slick-shortcode-title tbody tr.form-row > td{
+    font-weight: 600 !important;
+}
+
 .slick-shortcode-selector .label {
     width: 310px !important;
     font-size: 15px !important;
@@ -140,21 +153,23 @@
     width: 443px;
     padding-left: 0px; padding-right: 0px;
 }
-#slick-sc-form-table tbody tr.form-row .slick-insert {
-    display: block;
+.slick-insert {
+    background: #2991c0 none repeat scroll 0 0;
     color: #fff;
+    display: block;
+    font-size: 13px !important;
     height: 36px;
     width: 136px;
-    background: #2991c0;
-    font-size: 13px;
     font-weight: bold;
-    line-height: 36px;
+    line-height: 36px !important;
     text-decoration: none;
-    border: 0;
     text-align: center;
+    border: 0;
+    margin-bottom: 10px;
 }
-#slick-sc-form-table tbody tr.form-row .slick-insert:hover {
+.slick-insert:hover {
     background: #333333;
+    color: #ffffff;
 }
 
 /* child rows, sortable */
@@ -245,7 +260,9 @@
     -moz-border-radius: 0;
     border-radius:  0;
 }
-
+.alt-table{
+    background: #fff;
+}
 #slick-sc-form-table tbody tr.form-row .chosen-container-multi .chosen-choices {
     background: #ffffff;
     border: 1px solid #d9d9d9;
@@ -646,5 +663,9 @@
     width: 26px;
 }
 
+#slick-sc-form-table tbody tr.form-row .label .section-title{
+    color: #0058b6 !important;
+    font-weight: 900;
+}
 /* IE8, IE9 */
 #slick-sc-form-table tbody tr.form-row .slick-shortcodes-arrow {display: none\0/;} /* must go at the END of all rules */

@@ -77,12 +77,21 @@ jQuery(document).ready(function($) {
         // activate color picker
         $('.wp-color-picker-field').wpColorPicker({});
 
-        //DatePicker
-        jQuery('.slick-date-picker-field').datepicker({
+        //DatePicker time
+        $('.slick-date-picker-field').datetimepicker({
             dateFormat: "MM dd, yy",
-            maxDate: new Date(2036, 11,31)
+            timeFormat: "hh:mm tt"
         });
-        $( ".slick-spinner-field" ).spinner();
+
+        $( ".slick-spinner-field" ).spinner({
+            min: 0
+        });
+
+        $( ".float-spinner" ).spinner({
+            min: 0.0,
+            max:1.0,
+            step:0.01
+        });
 
     });
 
