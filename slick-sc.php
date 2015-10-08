@@ -1,3 +1,7 @@
+<?php
+    require_once('sc-fields.php');
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <body>
@@ -63,10 +67,12 @@
                         </td>
                         <td class="field">
                             <input type="text" name="slick_class2" class="slick-spinner-field slick-input slick-form-text" >
-
                         </td>
                     </tr>
                     </tbody>
+
+                    <?php slick_shortcodes($slick_shortcodes); ?>
+
                 </table>
             </form>
         </div>

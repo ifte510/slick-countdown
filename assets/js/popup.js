@@ -75,11 +75,11 @@ jQuery(document).ready(function($) {
         $('#slick-popup').closest('#TB_window').addClass('slick-shortcodes-popup');
 
         // activate color picker
-        $('.wp-color-picker-field').wpColorPicker();
+        $('.wp-color-picker-field').wpColorPicker({});
 
         //DatePicker
         jQuery('.slick-date-picker-field').datepicker({
-            dateFormat: "yy-mm-dd",
+            dateFormat: "MM dd, yy",
             maxDate: new Date(2036, 11,31)
         });
         $( ".slick-spinner-field" ).spinner();
