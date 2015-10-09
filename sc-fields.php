@@ -62,12 +62,19 @@ $basic_options = array(
 );
 
 $label_options = array(
-    'showLabel' => array(
-        'type'      	=> 'checkbox',
-        'label'     	=> 'Show Label',
+
+    'displayLabel' => array(
+        'type'      =>'select',
+        'label'     =>'Show Label',
         'desc'          => '',
-        'default'   	=> 1
+        'options'   =>array(
+            'true'      =>'Yes',
+            'false'     =>'No'
+        ),
+        'default'   =>'true'
     ),
+
+
     'days' => array(
         'type'      	=> 'text',
         'label'     	=> 'Days',
@@ -315,6 +322,7 @@ $element_styles = array(
         'type'  => 'text',
         'label' => 'Redirect URL',
         'desc'          => '',
+        'default'=>''
     )
 );
 
