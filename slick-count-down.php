@@ -131,7 +131,7 @@ if(!class_exists('Slick_CountDown_Core')){
         }
 
         function popup(){
-            require_once(SLICK_PLUGIN_DIR.'/slick-sc.php');
+            require_once(SLICK_PLUGIN_DIR.'/slick-sc-form.php');
             die();
         }
 

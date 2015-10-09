@@ -434,7 +434,7 @@
     width: 414px;
 }
 #slick-sc-form-table tbody tr.form-row .wp-color-picker-field {
-    width: 90px !important;
+    width: 443px !important;
     margin: 0 0 0 7px;
     height: 36px;
     padding-top: 7px;
@@ -669,3 +669,6 @@
 }
 /* IE8, IE9 */
 #slick-sc-form-table tbody tr.form-row .slick-shortcodes-arrow {display: none\0/;} /* must go at the END of all rules */
+#slick-sc-form-table .wp-color-result{
+    display: none;
+}
