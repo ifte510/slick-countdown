@@ -36,7 +36,7 @@ $basic_options = array(
         'type'          	=>'dateTime',
         'label'         	=>'End Date &nbsp; Time',
         'desc'          	=>'Timer end date and time',
-        'default'           => ''
+        'default'           => date('F d, Y h:i a', strtotime('+3 days')),
     ),
 
 
