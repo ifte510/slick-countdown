@@ -46,8 +46,26 @@ if(!class_exists('Slick_CountDown_Core')){
             define("SLICK_PLUGIN_DIR", plugin_dir_path( __FILE__ ));
 
             add_action('init',array(&$this,'init'));
+            add_action('wp_enqueue_scripts',array(&$this,'enqueue_scripts'));
             add_action('admin_init',array(&$this,'admin_init'));
             add_action('wp_ajax_slick_shortcodes_popup',array(&$this,'popup'));
+            add_shortcode('slickcountdown',array(&$this,'shortcode'));
+        }
+
+        /**
+         * Enqueue Scripts
+         *
+         * @return void
+         */
+
+        function enqueue_scripts()
+        {
+            wp_enqueue_style( 'classycountdown', SLICK_PLUGIN_URI . '/css/jquery.classycountdown.css', false, '1.1.0', 'all' );
+
+            wp_enqueue_script('jquery');
+            wp_enqueue_script( 'jquery-knob', SLICK_PLUGIN_URI . '/js/jquery.knob.js', false, '1.2.11', true );
+            wp_enqueue_script( 'jquery-throttle', SLICK_PLUGIN_URI . '/js/jquery.throttle.js', false, '1.1', true );
+            wp_enqueue_script( 'jquery-classycountdown', SLICK_PLUGIN_URI . '/js/jquery.classycountdown.js', false, '1.1.0', true );
         }
 
         /**
@@ -131,7 +149,148 @@ if(!class_exists('Slick_CountDown_Core')){
             die();
         }
 
+        function shortcode($atts)
+        {
+            $retVal = '<div id="'.$atts['slickid'].'" class="slickCountdown" style="background-color:'.$atts['slickbgcolor'].'; padding:'.$atts['slickpadding'].'px;"></div>';
+
+            $retVal .= '<script>';
+            $retVal .= 'jQuery(document).ready(function($) {';
+            $retVal .='$("#'.$atts['slickid'].'").ClassyCountdown({';
+            $retVal .='end: '.strtotime($atts["slickendtime"]).',';
+
+            if ($atts["slickcurrenttime"] == 'serverTime')
+            {
+                $retVal .= 'now: '.time() .',';
+            }
+            else
+            {
+                $retVal .= 'now: Math.floor(jQuery.now() / 1000), ';
+            }
+
+            $retVal .= 'style: {';
+            $retVal .= 'element: "",';
+            $retVal .= 'textResponsive: '.$atts['slickresponsivetextratio'].',';
+            $retVal .= 'days: {';
+            $retVal .= 'gauge: {';
+            $retVal .= 'thickness: '.$atts['slickdaysthickness'].',';
+            $retVal .= 'bgColor: "'.$atts['slickdaysbgcirclecolor'].'",';
+            $retVal .= 'fgColor: "'.$atts['slickdaysfgcirclecolor'].'",';
+            $retVal .= 'lineCap: "'.$atts['slickdayslinecap'].'"';
+            $retVal .= '},';
+            $retVal .='textCSS: "color:'.$atts['slickdaystextcolor'].';"';
+            $retVal .='},';
+            $retVal .= 'hours: {';
+            $retVal .= 'gauge: {';
+            $retVal .='thickness: '.$atts['slickhoursthickness'].',';
+            $retVal .='bgColor: "'.$atts['slickhoursbgcirclecolor'].'",';
+            $retVal .='fgColor: "'.$atts['slickhoursfgcirclecolor'].'",';
+            $retVal .='lineCap: "'.$atts['slickhourslinecap'].'"},';
+            $retVal .='textCSS: "color:'.$atts['slickhourstextcolor'].';"},';
+            $retVal .='minutes: {';
+            $retVal .='gauge: {';
+            $retVal .='thickness: '.$atts['slickminutesthickness'].',';
+            $retVal .='bgColor: "'.$atts['slickminutesbgcirclecolor'].'",';
+            $retVal .='fgColor: "'.$atts['slickminutesfgcirclecolor'].'",';
+            $retVal .='lineCap: "'.$atts['slickminuteslinecap'].'"';
+            $retVal .='},';
+            $retVal .='textCSS: "color:'.$atts['slickminutestextcolor'].';"';
+            $retVal .='},';
+            $retVal .='seconds: {';$retVal .='';
+            $retVal .='gauge: {';
+            $retVal .='thickness: '.$atts['slicksecondsthickness'].',';
+            $retVal .='bgColor: "'.$atts['slicksecondsbgcirclecolor'].'",';
+            $retVal .='fgColor: "'.$atts['slicksecondsfgcirclecolor'].'",';
+            $retVal .='lineCap: "'.$atts['slicksecondslinecap'].'"';
+            $retVal .='},';
+            $retVal .='textCSS: "color:'.$atts['slicksecondstextcolor'].';"';
+            $retVal .='}';
+            $retVal .='},';
+            $retVal .='labels: '.$atts['slickdisplaylabel'].',';
+            $retVal .='labelsOptions: {';
+            $retVal .='lang: {';
+            $retVal .='days: "'.$atts['slickdays'].'",';
+            $retVal .='hours: "'.$atts['slickhours'].'",';
+            $retVal .='minutes: "'.$atts['slickminutes'].'",';
+            $retVal .='seconds: "'.$atts['slickseconds'].'"';
+            $retVal .='},';
+            $retVal .='style: "font-size:0.5em; text-transform:uppercase;"';
+            $retVal .='}';
+            $retVal .='});';
+            $retVal .='});';
+            $retVal .='</script>';
+
+
+            return $retVal;
+        }
     }//class Slick_CountDown_Core
 }//if(!class_exists('Slick_CountDown_Core'))
 
 add_action( 'plugins_loaded', array( 'Slick_CountDown_Core', 'get_instance' ) );
+
+//
+//add_action('wp_footer','testScript');
+//function testScript(){
+//    ?>
+<!---->
+<!--    <script>-->
+<!--        jQuery(document).ready(function($) {-->
+<!--            $('#slick_1444462027_466344').ClassyCountdown({-->
+<!--                theme: "flat-colors",-->
+<!--                end: $.now() + 10000,-->
+<!--                now: $.now()-10000,-->
+<!--                style: {-->
+<!--                    element: "",-->
+<!--                    textResponsive: .5,-->
+<!--                    days: {-->
+<!--                        gauge: {-->
+<!--                            thickness: .03,-->
+<!--                            bgColor: "rgba(255,255,255,0.05)",-->
+<!--                            fgColor: "#1abc9c"-->
+<!--                        },-->
+<!--                        textCSS: 'color:#ffffff;'-->
+<!--                    },-->
+<!--                    hours: {-->
+<!--                        gauge: {-->
+<!--                            thickness: .03,-->
+<!--                            bgColor: "rgba(255,255,255,0.05)",-->
+<!--                            fgColor: "#2980b9"-->
+<!--                        },-->
+<!--                        textCSS: 'color:#ffffff;'-->
+<!--                    },-->
+<!--                    minutes: {-->
+<!--                        gauge: {-->
+<!--                            thickness: .03,-->
+<!--                            bgColor: "rgba(255,255,255,0.05)",-->
+<!--                            fgColor: "#8e44ad"-->
+<!--                        },-->
+<!--                        textCSS: 'color:#ffffff;'-->
+<!--                    },-->
+<!--                    seconds: {-->
+<!--                        gauge: {-->
+<!--                            thickness: .03,-->
+<!--                            bgColor: "rgba(255,255,255,0.05)",-->
+<!--                            fgColor: "#f39c12"-->
+<!--                        },-->
+<!--                        textCSS: 'color:#ffffff;'-->
+<!--                    }-->
+<!---->
+<!--                },-->
+<!--                labels: true,-->
+<!--                labelsOptions: {-->
+<!--                    lang: {-->
+<!--                        days: 'D',-->
+<!--                        hours: 'H',-->
+<!--                        minutes: 'M',-->
+<!--                        seconds: 'S'-->
+<!--                    },-->
+<!--                    style: 'font-size:0.5em; text-transform:uppercase;'-->
+<!--                }-->
+<!---->
+<!--            });-->
+<!--        });-->
+<!---->
+<!--    </script>-->
+<?php
+//}
+//
+

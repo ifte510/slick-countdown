@@ -1,4 +1,3 @@
-var old_tb_remove = window.tb_remove;
 var using_text_editor = false;
 var text_editor_toggle;
 var html_editor_toggle;
@@ -7,329 +6,309 @@ var cursor_position = 0;
 var shortcode;
 var presets = {
     'flat-colors': {
-        presetName: 'Flat colors',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.01,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#1abc9c",
-        daysTextColor:"#34495e",
+        slickDaysThickNess:0.01,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#1abc9c",
+        slickDaysTextColor:"#34495e",
 
-        hoursThickNess:0.01,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#2980b9",
-        hoursTextColor:"#34495e",
+        slickHoursThickNess:0.01,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#2980b9",
+        slickHoursTextColor:"#34495e",
 
-        minutesThickNess:0.01,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#8e44ad",
-        minutesTextColor:"#34495e",
+        slickMinutesThickNess:0.01,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#8e44ad",
+        slickMinutesTextColor:"#34495e",
 
-        secondsThickNess:0.01,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#f39c12",
-        secondsTextColor:"#34495e"
+        slickSecondsThickNess:0.01,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#f39c12",
+        slickSecondsTextColor:"#34495e"
     },
 
     'flat-colors-wide': {
-        presetName: 'Flat colors wide',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.03,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#1abc9c",
-        daysTextColor:"#34495e",
+        slickDaysThickNess:0.03,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#1abc9c",
+        slickDaysTextColor:"#34495e",
 
-        hoursThickNess:0.03,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#2980b9",
-        hoursTextColor:"#34495e",
+        slickHoursThickNess:0.03,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#2980b9",
+        slickHoursTextColor:"#34495e",
 
-        minutesThickNess:0.03,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#8e44ad",
-        minutesTextColor:"#34495e",
+        slickMinutesThickNess:0.03,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#8e44ad",
+        slickMinutesTextColor:"#34495e",
 
-        secondsThickNess:0.03,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#f39c12",
-        secondsTextColor:"#34495e"
+        slickSecondsThickNess:0.03,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#f39c12",
+        slickSecondsTextColor:"#34495e"
     },
 
     'flat-colors-very-wide': {
-        presetName: 'Flat colors very wide',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.12,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#1abc9c",
-        daysTextColor:"#34495e",
+        slickDaysThickNess:0.12,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#1abc9c",
+        slickDaysTextColor:"#34495e",
 
-        hoursThickNess:0.12,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#2980b9",
-        hoursTextColor:"#34495e",
+        slickHoursThickNess:0.12,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#2980b9",
+        slickHoursTextColor:"#34495e",
 
-        minutesThickNess:0.12,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#8e44ad",
-        minutesTextColor:"#34495e",
+        slickMinutesThickNess:0.12,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#8e44ad",
+        slickMinutesTextColor:"#34495e",
 
-        secondsThickNess:0.12,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#f39c12",
-        secondsTextColor:"#34495e"
+        slickSecondsThickNess:0.12,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#f39c12",
+        slickSecondsTextColor:"#34495e"
     },
 
     'flat-colors-black': {
-        presetName: 'Flat colors black',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.25,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#1abc9c",
-        daysTextColor:"#34495e",
+        slickDaysThickNess:0.25,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#1abc9c",
+        slickDaysTextColor:"#34495e",
 
-        hoursThickNess:0.25,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#2980b9",
-        hoursTextColor:"#34495e",
+        slickHoursThickNess:0.25,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#2980b9",
+        slickHoursTextColor:"#34495e",
 
-        minutesThickNess:0.25,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#8e44ad",
-        minutesTextColor:"#34495e",
+        slickMinutesThickNess:0.25,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#8e44ad",
+        slickMinutesTextColor:"#34495e",
 
-        secondsThickNess:0.25,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#f39c12",
-        secondsTextColor:"#34495e"
+        slickSecondsThickNess:0.25,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#f39c12",
+        slickSecondsTextColor:"#34495e"
     },
 
     'black': {
-        presetName: 'Black',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.01,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#222",
-        daysTextColor:"#34495e",
+        slickDaysThickNess:0.01,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#222",
+        slickDaysTextColor:"#34495e",
 
-        hoursThickNess:0.01,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#222",
-        hoursTextColor:"#34495e",
+        slickHoursThickNess:0.01,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#222",
+        slickHoursTextColor:"#34495e",
 
-        minutesThickNess:0.01,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#222",
-        minutesTextColor:"#34495e",
+        slickMinutesThickNess:0.01,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#222",
+        slickMinutesTextColor:"#34495e",
 
-        secondsThickNess:0.01,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#222",
-        secondsTextColor:"#34495e"
+        slickSecondsThickNess:0.01,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#222",
+        slickSecondsTextColor:"#34495e"
     },
 
     'black-wide': {
-        presetName: 'Black wide',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.03,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#222",
-        daysTextColor:"#34495e",
+        slickDaysThickNess:0.03,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#222",
+        slickDaysTextColor:"#34495e",
 
-        hoursThickNess:0.03,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#222",
-        hoursTextColor:"#34495e",
+        slickHoursThickNess:0.03,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#222",
+        slickHoursTextColor:"#34495e",
 
-        minutesThickNess:0.03,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#222",
-        minutesTextColor:"#34495e",
+        slickMinutesThickNess:0.03,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#222",
+        slickMinutesTextColor:"#34495e",
 
-        secondsThickNess:0.03,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#222",
-        secondsTextColor:"#34495e"
+        slickSecondsThickNess:0.03,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#222",
+        slickSecondsTextColor:"#34495e"
     },
 
     'black-very-wide': {
-        presetName: 'Black very wide',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.17,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#222",
-        daysTextColor:"#34495e",
+        slickDaysThickNess:0.17,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#222",
+        slickDaysTextColor:"#34495e",
 
-        hoursThickNess:0.03,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#222",
-        hoursTextColor:"#34495e",
+        slickHoursThickNess:0.03,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#222",
+        slickHoursTextColor:"#34495e",
 
-        minutesThickNess:0.17,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#222",
-        minutesTextColor:"#34495e",
+        slickMinutesThickNess:0.17,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#222",
+        slickMinutesTextColor:"#34495e",
 
-        secondsThickNess:0.17,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#222",
-        secondsTextColor:"#34495e"
+        slickSecondsThickNess:0.17,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#222",
+        slickSecondsTextColor:"#34495e"
     },
 
     'black-black': {
-        presetName: 'Black black',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.25,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#222",
-        daysTextColor:"#34495e",
+        slickDaysThickNess:0.25,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#222",
+        slickDaysTextColor:"#34495e",
 
-        hoursThickNess:0.25,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#222",
-        hoursTextColor:"#34495e",
+        slickHoursThickNess:0.25,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#222",
+        slickHoursTextColor:"#34495e",
 
-        minutesThickNess:0.25,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#222",
-        minutesTextColor:"#34495e",
+        slickMinutesThickNess:0.25,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#222",
+        slickMinutesTextColor:"#34495e",
 
-        secondsThickNess:0.25,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#222",
-        secondsTextColor:"#34495e"
+        slickSecondsThickNess:0.25,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#222",
+        slickSecondsTextColor:"#34495e"
     },
 
     'white': {
-        presetName: 'White',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.03,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#ffffff",
-        daysTextColor:"#ffffff",
+        slickDaysThickNess:0.03,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#ffffff",
+        slickDaysTextColor:"#ffffff",
 
-        hoursThickNess:0.03,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#ffffff",
-        hoursTextColor:"#ffffff",
+        slickHoursThickNess:0.03,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#ffffff",
+        slickHoursTextColor:"#ffffff",
 
-        minutesThickNess:0.03,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#ffffff",
-        minutesTextColor:"#ffffff",
+        slickMinutesThickNess:0.03,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#ffffff",
+        slickMinutesTextColor:"#ffffff",
 
-        secondsThickNess:0.03,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#ffffff",
-        secondsTextColor:"#ffffff"
+        slickSecondsThickNess:0.03,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#ffffff",
+        slickSecondsTextColor:"#ffffff"
     },
 
     'white-wide': {
-        presetName: 'White wide',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.06,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#ffffff",
-        daysTextColor:"#ffffff",
+        slickDaysThickNess:0.06,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#ffffff",
+        slickDaysTextColor:"#ffffff",
 
-        hoursThickNess:0.06,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#ffffff",
-        hoursTextColor:"#ffffff",
+        slickHoursThickNess:0.06,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#ffffff",
+        slickHoursTextColor:"#ffffff",
 
-        minutesThickNess:0.06,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#ffffff",
-        minutesTextColor:"#ffffff",
+        slickMinutesThickNess:0.06,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#ffffff",
+        slickMinutesTextColor:"#ffffff",
 
-        secondsThickNess:0.06,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#ffffff",
-        secondsTextColor:"#ffffff"
+        slickSecondsThickNess:0.06,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#ffffff",
+        slickSecondsTextColor:"#ffffff"
     },
     'white-very-wide': {
-        presetName: 'White very wide',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.16,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#ffffff",
-        daysTextColor:"#ffffff",
+        slickDaysThickNess:0.16,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#ffffff",
+        slickDaysTextColor:"#ffffff",
 
-        hoursThickNess:0.16,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#ffffff",
-        hoursTextColor:"#ffffff",
+        slickHoursThickNess:0.16,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#ffffff",
+        slickHoursTextColor:"#ffffff",
 
-        minutesThickNess:0.16,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#ffffff",
-        minutesTextColor:"#ffffff",
+        slickMinutesThickNess:0.16,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#ffffff",
+        slickMinutesTextColor:"#ffffff",
 
-        secondsThickNess:0.16,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#ffffff",
-        secondsTextColor:"#ffffff"
+        slickSecondsThickNess:0.16,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#ffffff",
+        slickSecondsTextColor:"#ffffff"
     },
 
     'white-black': {
-        presetName: 'White black',
-        responsiveTextRatio:.5,
-        showLabel:true,
+        slickResponsiveTextRatio:.5,
+        slickShowLabel:true,
 
-        daysThickNess:0.25,
-        daysBgCircleColor:"#f7f7f7",
-        daysFgCircleColor:"#ffffff",
-        daysTextColor:"#ffffff",
+        slickDaysThickNess:0.25,
+        slickDaysBgCircleColor:"#f7f7f7",
+        slickDaysFgCircleColor:"#ffffff",
+        slickDaysTextColor:"#ffffff",
 
-        hoursThickNess:0.25,
-        hoursBgCircleColor:"#f7f7f7",
-        hoursFgCircleColor:"#ffffff",
-        hoursTextColor:"#ffffff",
+        slickHoursThickNess:0.25,
+        slickHoursBgCircleColor:"#f7f7f7",
+        slickHoursFgCircleColor:"#ffffff",
+        slickHoursTextColor:"#ffffff",
 
-        minutesThickNess:0.25,
-        minutesBgCircleColor:"#f7f7f7",
-        minutesFgCircleColor:"#ffffff",
-        minutesTextColor:"#ffffff",
+        slickMinutesThickNess:0.25,
+        slickMinutesBgCircleColor:"#f7f7f7",
+        slickMinutesFgCircleColor:"#ffffff",
+        slickMinutesTextColor:"#ffffff",
 
-        secondsThickNess:0.25,
-        secondsBgCircleColor:"#f7f7f7",
-        secondsFgCircleColor:"#ffffff",
-        secondsTextColor:"#ffffff"
+        slickSecondsThickNess:0.25,
+        slickSecondsBgCircleColor:"#f7f7f7",
+        slickSecondsFgCircleColor:"#ffffff",
+        slickSecondsTextColor:"#ffffff"
     }
 };
 
 
 
 jQuery(document).ready(function($) {
-    var tb_remove = function(){
-      // check if text editor shortcode button was used; if so return to it
-        if(using_text_editor){
-            using_text_editor = false;
-            window.switchEditors.switchto( jQuery('#content-html')[0] );
-        }//if(using_text_editor)
 
-        old_tb_remove();
-    };
 
     window.slick_tb_height =(92 / 100)*jQuery(window).height();
     window.slick_shortcodes_height = (71 / 100) * jQuery(window).height();
@@ -372,8 +351,7 @@ jQuery(document).ready(function($) {
         },
         load : function(){
 
-            var	fusion = this,
-                popup = $('#slick-popup'),
+            var	popup = $('#slick-popup'),
                 form = $('#slick-sc-form', popup),
                 shortcode = $('#_slick_shortcode', form).text(),
                 popupType = $('#_slick_popup', form).text(),
@@ -387,6 +365,7 @@ jQuery(document).ready(function($) {
     //run
     $('#slick-popup').livequery(function(){
         slick_shortcode.load();
+
         $('#slick-popup').closest('#TB_window').addClass('slick-shortcodes-popup');
 
         // activate color picker

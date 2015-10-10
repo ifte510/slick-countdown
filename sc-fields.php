@@ -14,7 +14,7 @@ $basic_options = array(
             'default'   	=> '10'
     ),
 
-    'currentTime' => array(
+    'slickCurrentTime' => array(
             'type'      	=>'select',
             'label'     	=> __('Current Time','slick'),
             'desc'      	=> __('Select wheather to use current server time or client\'s local time','slick'),
@@ -25,7 +25,7 @@ $basic_options = array(
             'default'   =>'serverTime'
     ),
 
-    'endTime' => array(
+    'slickEndTime' => array(
         'type'          	=> 'dateTime',
         'label'         	=> __('End Date and Time','slick'),
         'desc'          	=> __('Timer end date and time','slick'),
@@ -33,7 +33,7 @@ $basic_options = array(
     ),
 
 
-    'responsiveTextRatio' => array(
+    'slickResponsiveTextRatio' => array(
         'type'      		=> 'select',
         'label'     		=> __('Responsice Text Ratio','slick'),
         'desc'              => __('','slick'),
@@ -56,7 +56,7 @@ $basic_options = array(
 
 $label_options = array(
 
-    'displayLabel'  => array(
+    'slickDisplayLabel'  => array(
         'type'      => 'select',
         'label'     => __('Show Label','slick'),
         'desc'      => __('','slick'),
@@ -68,28 +68,28 @@ $label_options = array(
     ),
 
 
-    'days' => array(
+    'slickDays' => array(
         'type'      	=> 'text',
         'label'     	=> __('Days','slick'),
         'desc'          => __('','slick'),
         'default'   	=> __('Days','slick'),
     ),
 
-    'hours' => array(
+    'slickHours' => array(
         'type'      	=> 'text',
         'label'     	=> __('Hours','slick'),
         'desc'          => __('','slick'),
         'default'   	=> __('Hours','slick'),
     ),
 
-    'minutes' => array(
+    'slickMinutes' => array(
         'type'      	=> 'text',
         'label'     	=> __('Minutes','slick'),
         'desc'          => __('','slick'),
         'default'   	=> __('Minutes','slick'),
     ),
 
-    'seconds' => array(
+    'slickSeconds' => array(
         'type'      	=> 'text',
         'label'     	=> __('Seconds','slick'),
         'desc'          => __('','slick'),
@@ -99,7 +99,7 @@ $label_options = array(
 
 $element_styles = array(
 
-    'daysElementStyles' => array(
+    'slickDaysElementStyles' => array(
         'type'      => 'title',
         'label'     => __('Days Element','slick'),
         'desc'      => __('','slick'),
@@ -107,7 +107,7 @@ $element_styles = array(
 
     ),
 
-    'daysThickNess' => array(
+    'slickDaysThickNess' => array(
         'type'      =>'float-spinner',
         'label'     => __('Thickness','slick'),
         'desc'      => __('','slick'),
@@ -115,28 +115,28 @@ $element_styles = array(
     ),
 
 
-    'daysBgCircleColor'  => array(
+    'slickDaysBgCircleColor'  => array(
         'type'      => 'color',
         'label'     => __('Background Circle Color','slick'),
         'desc'      => __('','slick'),
         'default'   => ''
     ),
 
-    'daysFgCircleColor'  => array(
+    'slickDaysFgCircleColor'  => array(
         'type'      => 'color',
         'label'     => __('Foreground Circle Color','slick'),
         'desc'      => __('','slick'),
         'default'   => ''
     ),
 
-    'daysTextColor'  => array(
+    'slickDaysTextColor'  => array(
         'type'      => 'color',
         'label'     => __('Label Text Color','slick'),
         'desc'      => __('','slick'),
         'default'   => ''
     ),
 
-    'daysLineCap' => array(
+    'slickDaysLineCap' => array(
         'type'      => 'select',
         'label'     => __('Line Cap','slick'),
         'desc'      => __('','slick'),
@@ -153,7 +153,7 @@ $element_styles = array(
      * Hours elements styles
      */
 
-    'hoursElementStyles' => array(
+    'slickHoursElementStyles' => array(
         'type'      => 'title',
         'label'     => __('Hours Element','slick'),
         'desc'      => __('','slick'),
@@ -161,7 +161,7 @@ $element_styles = array(
 
     ),
 
-    'hoursThickNess' => array(
+    'slickHoursThickNess' => array(
         'type'      => 'float-spinner',
         'label'     => __('Thickness','slick'),
         'desc'      => __('','slick'),
@@ -169,27 +169,27 @@ $element_styles = array(
     ),
 
 
-    'hoursBgCircleColor'  => array(
+    'slickHoursBgCircleColor'  => array(
         'type'      => 'color',
         'desc'      => __('','slick'),
         'default'   => __('','slick')
     ),
 
-    'hoursFgCircleColor'  => array(
+    'slickHoursFgCircleColor'  => array(
         'type'      => 'color',
         'label'     => __('Foreground Circle Color','slick'),
         'desc'      => __('','slick'),
         'default'   => __('','slick')
     ),
 
-    'hoursTextColor'  => array(
+    'slickHoursTextColor'  => array(
         'type'      => 'color',
         'label'     => __('Label Text Color','slick'),
         'desc'      => __('','slick'),
         'default'   => __('','slick')
     ),
 
-    'hoursLineCap' => array(
+    'slickHoursLineCap' => array(
         'type'      => 'select',
         'label'     => __('Line Cap','slick'),
         'desc'      => __('','slick'),
@@ -205,7 +205,7 @@ $element_styles = array(
      * Minutes elements styles
      */
 
-    'minutesElementStyles' => array(
+    'slickMinutesElementStyles' => array(
         'type'      => 'title',
         'label'     => __('Minutes Element','slick'),
         'desc'      => __('','slick'),
@@ -213,7 +213,7 @@ $element_styles = array(
 
     ),
 
-    'minutesThickNess' => array(
+    'slickMinutesThickNess' => array(
         'type'      => 'float-spinner',
         'label'     => __('Thickness','slick'),
         'desc'      => __('','slick'),
@@ -221,28 +221,28 @@ $element_styles = array(
     ),
 
 
-    'minutesBgCircleColor'  => array(
+    'slickMinutesBgCircleColor'  => array(
         'type'      => 'color',
         'label'     => __('Background Circle Color','slick'),
         'desc'      => __('','slick'),
         'default'   => __('','slick')
     ),
 
-    'minutesFgCircleColor'  => array(
+    'slickMinutesFgCircleColor'  => array(
         'type'      => 'color',
         'label'     => __('Foreground Circle Color','slick'),
         'desc'      => __('','slick'),
         'default'   => __('','slick')
     ),
 
-    'minutesTextColor'  => array(
+    'slickMinutesTextColor'  => array(
         'type'      => 'color',
         'label'     => __('Label Text Color','slick'),
         'desc'      => __('','slick'),
         'default'   => __('','slick')
     ),
 
-    'minutesLineCap' => array(
+    'slickMinutesLineCap' => array(
         'type'      => 'select',
         'label'     => __('Line Cap','slick'),
         'desc'      => '',
@@ -259,7 +259,7 @@ $element_styles = array(
      * Seconds elements styles
      */
 
-    'secondsElementStyles' => array(
+    'slickSecondsElementStyles' => array(
         'type'      => 'title',
         'label'     => __('Minutes Element','slick'),
         'desc'      => __('','slick'),
@@ -267,7 +267,7 @@ $element_styles = array(
 
     ),
 
-    'secondsThickNess' => array(
+    'slickSecondsThickNess' => array(
         'type'      => 'float-spinner',
         'label'     => __('Thickness','slick'),
         'desc'      => __('','slick'),
@@ -275,28 +275,28 @@ $element_styles = array(
     ),
 
 
-    'secondsBgCircleColor'  => array(
+    'slickSecondsBgCircleColor'  => array(
         'type'      => 'color',
         'label'     => __('Background Circle Color','slick'),
         'desc'      => __('','slick'),
         'default'   =>''
     ),
 
-    'secondsFgCircleColor'  => array(
+    'slickSecondsFgCircleColor'  => array(
         'type'      => 'color',
         'label'     => __('Foreground Circle Color','slick'),
         'desc'      => __('','slick'),
         'default'   => __('','slick')
     ),
 
-    'secondsTextColor'  => array(
+    'slickSecondsTextColor'  => array(
         'type'      => 'color',
         'label'     => __('Label Text Color','slick'),
         'desc'      => __('','slick'),
         'default'   => __('','slick')
     ),
 
-    'secondsLineCap' => array(
+    'slickSecondsLineCap' => array(
         'type'      => 'select',
         'label'     => __('Line Cap','slick'),
         'desc'          => '',
@@ -308,7 +308,7 @@ $element_styles = array(
         'default'   => 'butt'
     ),
 
-    'redirectUrl'=>array(
+    'slickRedirectUrl'=>array(
         'type'  => 'text',
         'label' => __('Redirect URL','slick'),
         'desc'  => __('','slick'),
