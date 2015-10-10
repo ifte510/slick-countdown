@@ -72,10 +72,6 @@ if(!class_exists('Slick_CountDown_Core')){
             wp_enqueue_style( 'slick-popup', SLICK_PLUGIN_URI . '/css/popup.css', false, Slick_CountDown_Core::VERSION, 'all' );
             wp_enqueue_style( 'jquery-ui-timepicker-addon', SLICK_PLUGIN_URI . '/css/jquery-ui-timepicker-addon.css', false, Slick_CountDown_Core::VERSION, 'all' );
 
-
-
-
-
             wp_enqueue_script( 'wp-color-picker' );
             wp_enqueue_script( 'jquery-ui-core' );
             wp_enqueue_script( 'jquery-ui-datepicker' );
