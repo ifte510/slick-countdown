@@ -1,5 +1,6 @@
 <?php
     require_once('sc-fields.php');
+    $fields = new Slick_Shortcode_Fields();
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -62,7 +63,8 @@
                     </tr>
                     </tbody>
 
-                    <?php slick_shortcodes($basic_options); ?>
+                    <?php //slick_shortcodes($basic_options); ?>
+                    <?php $fields->get_basic_options(); ?>
 
                 </table>
 
@@ -78,7 +80,7 @@
                 </table>
 
                 <table id="slick-sc-form-table">
-                    <?php slick_shortcodes($label_options); ?>
+                    <?php $fields->get_label_options(); ?>
                 </table>
 
 
@@ -94,7 +96,7 @@
                 </table>
 
                 <table id="slick-sc-form-table">
-                    <?php slick_shortcodes($element_styles); ?>
+                    <?php $fields->get_element_styles_options(); ?>
                 </table>
 
                 <tbody class="slick-sc-form-button">

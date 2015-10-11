@@ -399,21 +399,22 @@ jQuery(document).ready(function($) {
             });
         });
 
-        // insert shortcode when inset button clicked
-        $('.slick-insert').live('click',function(){
-            shortcode = '[slickcountdown ';
-            jQuery("#slick-sc-form input:not(.noinclude,.wp-picker-clear), #slick-sc-form select").each(function() {
-                if(jQuery(this).val() && jQuery(this).attr('class') != 'wp-picker-clear'){
-                    shortcode += jQuery(this).attr("id") + '="' + jQuery(this).val() + '" ';
-                }
 
-            });
-            shortcode += ']';
-            tinyMCE.activeEditor.execCommand('mceInsertContent', false, shortcode);
+    });
 
-            tb_remove();
+    // insert shortcode when inset button clicked
+    $('.slick-insert').live('click',function(){
+        shortcode = '[slickcountdown ';
+        jQuery("#slick-sc-form input:not(.noinclude,.wp-picker-clear), #slick-sc-form select").each(function() {
+            if(jQuery(this).val() && jQuery(this).attr('class') != 'wp-picker-clear'){
+                shortcode += jQuery(this).attr("id") + '="' + jQuery(this).val() + '" ';
+            }
 
         });
+        shortcode += ']';
+        tinyMCE.activeEditor.execCommand('mceInsertContent', false, shortcode);
+
+        tb_remove();
 
     });
 
