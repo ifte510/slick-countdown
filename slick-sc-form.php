@@ -1,5 +1,5 @@
 <?php
-    require_once('sc-fields.php');
+    require_once('class-slick-shortcode-fields.php');
     $fields = new Slick_Shortcode_Fields();
 ?>
 
