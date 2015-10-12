@@ -1,4 +1,5 @@
 <?php
+    defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
     require_once('class-slick-shortcode-fields.php');
     $fields = new Slick_Shortcode_Fields();
 ?>

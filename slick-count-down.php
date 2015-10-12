@@ -1,5 +1,4 @@
 <?php
-
 /*
 Plugin Name: Slick Count Down
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
@@ -10,7 +9,7 @@ Author URI: http://URI_Of_The_Plugin_Author
 License: A "Slug" license name e.g. GPL2
 */
 
-
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 if(!class_exists('Slick_CountDown_Core')){
     class Slick_CountDown_Core{
         /**

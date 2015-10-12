@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 if(!class_exists('Slick_Shortcode_Fields'))
 {
     class Slick_Shortcode_Fields
@@ -319,13 +320,6 @@ if(!class_exists('Slick_Shortcode_Fields'))
                         'square'    => __('Square','slick')
                     ),
                     'default'   => 'butt'
-                ),
-
-                'slickRedirectUrl'=>array(
-                    'type'  => 'text',
-                    'label' => __('Redirect URL','slick'),
-                    'desc'  => __('','slick'),
-                    'default'=> ''
                 )
             );
             $this->generate_fields($element_styles);
