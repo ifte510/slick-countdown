@@ -1,8 +1,3 @@
-var using_text_editor = false;
-var text_editor_toggle;
-var html_editor_toggle;
-var editor_area;
-var cursor_position = 0;
 var shortcode;
 var presets = {
     'flat-colors': {
@@ -306,7 +301,6 @@ var presets = {
 };
 
 
-
 jQuery(document).ready(function($) {
 
 
@@ -352,10 +346,7 @@ jQuery(document).ready(function($) {
         load : function(){
 
             var	popup = $('#slick-popup'),
-                form = $('#slick-sc-form', popup),
-                shortcode = $('#_slick_shortcode', form).text(),
-                popupType = $('#_slick_popup', form).text(),
-                uShortcode = '';
+                form = $('#slick-sc-form', popup);
 
             // resize TB
             slick_shortcode.resizeTB();
@@ -387,21 +378,16 @@ jQuery(document).ready(function($) {
             step:0.01
         });
 
-
         jQuery.each( presets[jQuery("#slick-select-theme").val()], function( key, val ) {
             jQuery("#" + key).val(val);
         });
-
 
         jQuery("#slick-select-theme").change(function() {
             jQuery.each( presets[jQuery(this).val()], function( key, val ) {
                 jQuery("#" + key).val(val);
             });
         });
-
-
     });
-
     // insert shortcode when inset button clicked
     $('.slick-insert').live('click',function(){
         shortcode = '[slickcountdown ';
@@ -409,7 +395,6 @@ jQuery(document).ready(function($) {
             if(jQuery(this).val() && jQuery(this).attr('class') != 'wp-picker-clear'){
                 shortcode += jQuery(this).attr("id") + '="' + jQuery(this).val() + '" ';
             }
-
         });
         shortcode += ']';
         tinyMCE.activeEditor.execCommand('mceInsertContent', false, shortcode);
@@ -417,6 +402,4 @@ jQuery(document).ready(function($) {
         tb_remove();
 
     });
-
-
 });
