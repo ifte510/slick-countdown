@@ -9,7 +9,11 @@ Author URI: http://URI_Of_The_Plugin_Author
 License: A "Slug" license name e.g. GPL2
 */
 
-defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+if ( !function_exists( 'add_action' ) ) {
+    echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
+    exit;
+}
+
 if(!class_exists('Slick_CountDown_Core')){
     class Slick_CountDown_Core{
         /**
