@@ -16,6 +16,22 @@
         <div id="slick-sc-form-wrap">
             <?php
             $select_themes = array(
+                'turquoise'             => 'Turquoise',
+                'emerald'               => 'Emerald',
+                'peterRiver'            => 'Peter River',
+                'amethyst'              => 'Amethyst',
+                'wetAsphalt'            => 'Wet Asphalt',
+                'greenSea'              => 'Green Sea',
+                'nephritis'             => 'Nephritis',
+                'belizeHole'            => 'Belize Hole',
+                'wisteria'              => 'Wisteria',
+                'midNightBlue'          => 'Mid Night Blue',
+                'sunFlower'             => 'Sun Flower',
+                'carrot'                => 'Carrot',
+                'alizarin'              => 'Alizarin',
+                'orange'                => 'Orange',
+                'pumpkin'               => 'Pumpkin',
+                'pomegrante'            => 'Pomegrante',
                 'flat-colors' 			=> 'Flat Colors',
                 'flat-colors-wide'		=> 'Flat Colors Wide',
                 'flat-colors-very-wide'	=> 'Flat Colors Very Wide',
