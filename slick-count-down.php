@@ -1,12 +1,11 @@
 <?php
 /*
 Plugin Name: Slick CountDown
-Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
-Description: A brief description of the Plugin.
+Plugin URI: http://plugins.ifte-hsn.com/slick-countdown/
+Description: A countdown timer plugin for wordpress. 
 Version: 1.0
 Author: NextDot-03
-Author URI: http://URI_Of_The_Plugin_Author
-License: A "Slug" license name e.g. GPL2
+Author URI: http://ifte-hsn.com
 */
 
 if ( !function_exists( 'add_action' ) ) {
