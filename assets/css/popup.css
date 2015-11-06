@@ -170,7 +170,16 @@
     background: #333333;
     color: #ffffff;
 }
-
+#TB_ajaxWindowTitle{
+	position:relative;
+}
+#TB_ajaxWindowTitle .slick-insert {
+  display: inline;
+  float: right;
+  position: absolute;
+  right: 10%;
+  top: 17%;
+}
 
 /* form elements */
 

@@ -795,6 +795,8 @@ jQuery(document).ready(function($) {
         slick_shortcode.load();
 
         $('#slick-popup').closest('#TB_window').addClass('slick-shortcodes-popup');
+		$('<a class="slick-insert" href="#">Insert Shortcode</a>').appendTo('#TB_ajaxWindowTitle');
+		
 
         // activate color picker
         $('.wp-color-picker-field').wpColorPicker({});
