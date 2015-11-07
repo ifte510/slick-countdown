@@ -4,7 +4,7 @@ Plugin Name: Slick CountDown
 Plugin URI: http://plugins.ifte-hsn.com/slick-countdown/
 Description: A countdown timer plugin for wordpress. 
 Version: 1.0
-Author: NextDot-03
+Author: Ifte
 Author URI: http://ifte-hsn.com
 */
 
